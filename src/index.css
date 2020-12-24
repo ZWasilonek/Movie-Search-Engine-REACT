@@ -42,6 +42,10 @@ code {
   min-height: 640px;
 }
 
+.movie-style img {
+  cursor: pointer;
+}
+
 .movie-list-container {
   margin-top: 80px;
   margin-bottom: 80px;
