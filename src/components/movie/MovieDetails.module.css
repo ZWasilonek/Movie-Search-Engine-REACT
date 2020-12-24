@@ -1,0 +1,45 @@
+.MainContainer {
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(217, 201, 250, 0.164);
+  position: relative;
+  padding: 60px 50px;
+  margin-top: 9%;
+}
+
+.Container {
+  /* background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 60px 50px; */
+}
+
+.MainRow {
+  /* background-color: rgb(197, 169, 169); */
+}
+
+.MovieCard {
+  background-color: rgba(168, 182, 169, 0.747);
+}
+
+/* .MainContainer::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(156, 156, 156, 0.363);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+} */
+
+/* .MainContainer > * {
+  z-index: 1;
+} */

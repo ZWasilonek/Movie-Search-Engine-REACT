@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  background: url("https://i0.wp.com/harborhonolulu.org/wp-content/uploads/2019/05/movie-theater-background.jpg?ssl=1") no-repeat fixed center / cover;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.spinner {
+  margin-top: 40%;
+}
+
+.movies-list-error {
+  margin: 10% auto;
+  text-align: center;
+}
+
+.movies-list-error h1 {
+  font-size: 30px;
+  color: red;
+}
+
+.image {  
+  width: 320px;
+  height: 450px;
+}
+
+.movie-style {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  color: #fcd069fc;
+  margin: 20px 0 20px 0;
+  font-family: Helvetica, sans-serif;
+  width: 322px;
+  min-height: 640px;
+}
+
+.movie-list-container {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.stars-rating {
+  background-color: rgb(188, 188, 189);
+}
+
+.navbar {
+  background-color: #33012f;
+}
+
+.wish-to-watch-icon {
+  float: right;
+  cursor: pointer;
+}
+
+.wish-to-watch-icon:hover {
+  color: #ffdb4d7c;
+}
+
+.watched-icon {
+  cursor: pointer;
+}
+
+.watched-icon:hover {
+  color: rgba(210, 105, 30, 0.377);
+}
+
+.pages-box {
+  margin: 100px;
+  border-radius: 20px;
+}
+
+.pagination li {
+  color: rgb(156, 34, 115);
+}
+
+.pagination li a {
+  border: 2px solid black;
+  background-color: #33012ff3;
+  padding: 10px;
+  margin: 3px;
+}
+
+.active-page a {
+  background-color: #b98446 !important;
+  color: black !important;
+}
+
+.pages-content {
+  background-color: rgba(0, 0, 0, 0.562);
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  height: 99%;
+}
