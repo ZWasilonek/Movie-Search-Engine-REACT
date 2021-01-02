@@ -30,26 +30,37 @@ class MovieDetailsView extends Component {
             <Helmet>
               <style>{backgroundStyle}</style>
             </Helmet>
-            <Container className={classes.Container}>
-              <Row className={classes.MainRow}>
-                <Col className="test" xs md='auto' lg='auto'>
+            <Container>
+              <Row>
+                <Col xs md='auto' lg='auto'>
                   <Image src={movie.Poster} rounded className="" />
                 </Col>
-                <Col className="test2" xs md={7} lg={7}>
+                <Col xs md={7} lg={7}>
                   <Card className={classes.MovieCard}>
-                    <Card.Header>{movie.Title} ({movie.Year})</Card.Header>
+                    <Card.Header className={classes.MovieTitleCard}>
+                      {movie.Title.toUpperCase()} ({movie.Year})
+                    </Card.Header>
                     <Card.Body>
-                      <Card.Text>Direction: {movie.Director}</Card.Text>
-                      <Card.Text>Production: {movie.Production}</Card.Text>
-                      <Card.Text>Genre: {movie.Genre}</Card.Text>
-                      <Card.Text>Country: {movie.Country}</Card.Text>
-                      <Card.Text>Premiere: {movie.Released}</Card.Text>
-                      <Card.Text>Runtime: {movie.Runtime}</Card.Text>
-                      <Card.Text>Awards: {movie.Awards}</Card.Text>
-                      <Card.Text>Actors: {movie.Actors}</Card.Text>
+                      <Card.Text><span className={classes.MovieFeatures}>
+                        Direction:</span> {movie.Director}</Card.Text>
+                      <Card.Text><span className={classes.MovieFeatures}>
+                        Production:</span> {movie.Production}</Card.Text>
+                      <Card.Text><span className={classes.MovieFeatures}>
+                        Genre:</span> {movie.Genre}</Card.Text>
+                      <Card.Text><span className={classes.MovieFeatures}>
+                        Country:</span> {movie.Country}</Card.Text>
+                      <Card.Text><span className={classes.MovieFeatures}>
+                        Premiere:</span> {movie.Released}</Card.Text>
+                      <Card.Text><span className={classes.MovieFeatures}>
+                        Runtime:</span> {movie.Runtime}</Card.Text>
+                      <Card.Text><span className={classes.MovieFeatures}>
+                        Awards:</span> {movie.Awards}</Card.Text>
+                      <Card.Text><span className={classes.MovieFeatures}>
+                        Actors:</span> {movie.Actors}</Card.Text>
                       <Card.Text>{movie.Plot}</Card.Text>
                       <Card.Text>
-                        <StarsRatingView rating={movie.rating} /> {movie.imdbVotes}
+                        <StarsRatingView rating={movie.rating} /> 
+                        <span className={classes.MovieVotesCard}>{movie.imdbVotes} votes</span>
                       </Card.Text>
                     </Card.Body>
                   </Card>
