@@ -12,20 +12,16 @@ class MovieDetailsView extends Component {
     this.props.loadMovieDetails();
   };
 
-  shouldComponentRender() {
-    return this.props.loading;
-  };
-
   render() {
-    const { error, movie } = this.props;
+    const { error, movie, loading } = this.props;
     const backgroundStyle = "body {background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://webdesignerdepot.s3.amazonaws.com/default-images/16.jpg) no-repeat fixed center / cover;}"
     return (
       <>
-        {this.shouldComponentRender() && <Loading />}
+        {loading && <Loading />}
         {error && <FetchingError error={error} />}
         {movie === undefined && movie !== null && !error && !this.shouldComponentRender()
           && <EmptyMoviesList />}
-        {movie !== undefined && movie !== null &&
+        {movie !== undefined && movie !== null && !loading &&
           <div className={classes.MainContainer}>
             <Helmet>
               <style>{backgroundStyle}</style>

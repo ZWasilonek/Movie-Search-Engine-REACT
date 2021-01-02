@@ -7,17 +7,13 @@ import { FetchingError } from '../error/FetchingError';
 import ReactPaginate from 'react-paginate';
 
 class MoviesListView extends Component {
-  shouldComponentRender() {
-    return this.props.loading;
-  };
-
   render() {
-    const { error, movies, totalPages, loadSelectedPage } = this.props;
+    const { error, movies, totalPages, loadSelectedPage, loading } = this.props;
     return (
       <>
-        {this.shouldComponentRender() && <Loading />}
+        {loading && <Loading />}
         {error && <FetchingError error={error} />}
-        {movies.length === 0 && !error && !this.shouldComponentRender() && <EmptyMoviesList />}
+        {movies.length === 0 && !error && !loading && <EmptyMoviesList />}
         {movies !== undefined && movies.length !== 0 && error === null &&
           <Container className="movie-list-container">
             <Row>
