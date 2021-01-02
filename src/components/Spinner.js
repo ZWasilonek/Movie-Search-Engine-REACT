@@ -6,7 +6,7 @@ export default class Loading extends Component {
     return (
       <Container className="spinner">
         <Row className="justify-content-md-center">
-          <Button variant="info" disabled>
+          <Button variant="warning" disabled>
             <Spinner
               as="span"
               animation="border"
