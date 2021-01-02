@@ -22,5 +22,3 @@ function getFixedRating(originalRating) {
 }
 
 export const getSearchTitle = state => state.moviesState.movieTitle;
-
-// export const getEnteredMoviesTitle = state => state.moviesState.movieTitle;
