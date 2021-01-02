@@ -10,36 +10,23 @@
   margin-top: 9%;
 }
 
-.Container {
-  /* background-size: cover;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 60px 50px; */
-}
-
-.MainRow {
-  /* background-color: rgb(197, 169, 169); */
-}
-
 .MovieCard {
-  background-color: rgba(168, 182, 169, 0.747);
+  background-color: rgba(179, 199, 199, 0.637);
 }
 
-/* .MainContainer::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(156, 156, 156, 0.363);
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-} */
+.MovieFeatures {
+  color: rgb(245, 221, 150);
+}
 
-/* .MainContainer > * {
-  z-index: 1;
-} */
+.MovieTitleCard {
+  color: #33012f;
+  font-size: x-large;
+  font-weight: 900;
+  background-color:rgba(113, 95, 148, 0.164);
+  border: 2px solid rgba(184, 185, 204, 0.493);
+}
+
+.MovieVotesCard {
+  vertical-align: sub;
+  padding-left: 15px;
+}
