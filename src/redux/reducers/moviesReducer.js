@@ -8,7 +8,9 @@ import {
   REMOVE_FROM_MOVIES_TO_WATCH,
   REMOVE_FROM_WATCHED_MOVIES,
   SHOW_SELECTED_PAGE,
-  MOVIE_DETAILS_FETCHED
+  MOVIE_DETAILS_FETCHED,
+  SET_ROOT_PATH,
+  SET_PAGE_NUMBER
 } from "../actions/actionsTypes";
 
 const initialState = {
@@ -20,12 +22,25 @@ const initialState = {
   moviesByPageNumber: [],
   totalResults: 0,
   movieTitle: "",
-  movieDetails: null
+  movieDetails: null,
+  rootPath: "",
+  homePageIndex: 0,
+  toWatchPageIndex: 0,
+  watchedPageIndex: 0
 }
 
 export const moviesState = (state = initialState, { type, payload }) => {
-  //FIXME:
-  console.log("payload", payload)
+  const WATCHED_MOVIES_PATH = "watched";
+  const WANT_TO_WATCH_PATH = "toWatch";
+  const HOME_PATH = "home";
+  const HOME_INDEX_FIELD_NAME = "homePageIndex";
+  const TO_WATCH_INDEX_FIELD_NAME = "toWatchPageIndex";
+  const WATCHED_INDEX_FIELD_NAME = "watchedPageIndex"
+
+  const selectedPath = state.rootPath;
+  const isHomePath = selectedPath.includes(HOME_PATH);
+  const isWatchedPath = selectedPath.includes(WATCHED_MOVIES_PATH);
+  const isWantWatchPath = selectedPath.includes(WANT_TO_WATCH_PATH);
 
   switch (type) {
     case FETCHING_MOVIES:
@@ -39,6 +54,7 @@ export const moviesState = (state = initialState, { type, payload }) => {
         ...state,
         isFetching: false,
         movies: payload.Search,
+        error: null,
         totalResults: Number(payload.totalResults)
       };
 
@@ -72,8 +88,7 @@ export const moviesState = (state = initialState, { type, payload }) => {
       };
 
     case REMOVE_FROM_MOVIES_TO_WATCH:
-      const movieToWatch = payload.movie;
-      const isToWatchPath = payload.rootPath.includes("toWatch");
+      const movieToWatch = payload;
 
       const watchedMovies = state.watchedMovies.map(movie => {
         if (movie.imdbID === movieToWatch.imdbID) movie = movieToWatch;
@@ -87,12 +102,11 @@ export const moviesState = (state = initialState, { type, payload }) => {
         ...state,
         moviesToWatch: filteredMoviesToWatch,
         watchedMovies: watchedMovies,
-        moviesByPageNumber: isToWatchPath ? filteredMoviesToWatch : state.watchedMovies
+        moviesByPageNumber: isWantWatchPath ? filteredMoviesToWatch : state.watchedMovies
       };
 
     case REMOVE_FROM_WATCHED_MOVIES:
-      const watchedMovie = payload.movie;
-      const isWatchedPath = payload.rootPath.includes("watched");
+      const watchedMovie = payload;
 
       const moviesToWatch = state.moviesToWatch.map(movie => {
         if (movie.imdbID === watchedMovie.imdbID) movie = watchedMovie;
@@ -120,6 +134,21 @@ export const moviesState = (state = initialState, { type, payload }) => {
         ...state,
         isFetching: false,
         movieDetails: payload
+      }
+
+    case SET_ROOT_PATH:
+      return {
+        ...state,
+        rootPath: payload
+      }
+
+    case SET_PAGE_NUMBER:
+      const selectedPageNumber = isWantWatchPath ? TO_WATCH_INDEX_FIELD_NAME : 
+      (isWatchedPath ? WATCHED_INDEX_FIELD_NAME : 
+        (isHomePath ? HOME_INDEX_FIELD_NAME : "ERROR"));
+      return {
+        ...state,
+        [selectedPageNumber]: payload
       }
 
     default:
