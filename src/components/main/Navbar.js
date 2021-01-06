@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { withRouter } from 'react-router-dom';
 
 class Navigation extends Component {
   state = {
@@ -10,10 +11,17 @@ class Navigation extends Component {
     this.setState({ searchWord: event.target.value });
   };
 
+  goToHomePage = () => {
+    const PATH = "/home";
+    this.props.history.location.pathname = PATH;
+    this.props.history.push(PATH);
+  }
+
   handleSubmit = (event, searchedWord) => {
     event.preventDefault();
     this.props.searchMovies(searchedWord);
-  }
+    this.goToHomePage();
+  };
 
   render() {
     return (
@@ -36,7 +44,7 @@ class Navigation extends Component {
               variant="outline-warning"
               type="submit">
               Search
-            </Button>
+              </Button>
           </Form>
         </Navbar>
       </>
@@ -44,4 +52,4 @@ class Navigation extends Component {
   };
 };
 
-export default Navigation;
+export default withRouter(Navigation);
