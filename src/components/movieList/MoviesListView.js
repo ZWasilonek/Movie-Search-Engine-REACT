@@ -3,12 +3,23 @@ import MovieView from "../../containers/Movie";
 import { Col, Row, Container } from "react-bootstrap";
 import Loading from '../Spinner';
 import EmptyMoviesList from '../error/EmptyMoviesList';
-import { FetchingError } from '../error/FetchingError';
+import FetchingError from '../error/FetchingError';
 import ReactPaginate from 'react-paginate';
+import { withRouter } from 'react-router-dom';
 
 class MoviesListView extends Component {
+  componentWillMount() {
+    const rootPath = this.props.history.location.pathname;
+    this.props.setRootPath(rootPath);
+  }
+
+  loadMoviesByPageNumber = selectedPageIndex => {
+    this.props.changePageNumber(selectedPageIndex)
+    this.props.loadSelectedPage()
+  }
+
   render() {
-    const { error, movies, totalPages, loadSelectedPage, loading } = this.props;
+    const { error, movies, totalPages, loading } = this.props;
     return (
       <>
         {loading && <Loading />}
@@ -31,10 +42,11 @@ class MoviesListView extends Component {
                     pageCount={totalPages}
                     marginPagesDisplayed={2}
                     pageRangeDisplayed={5}
-                    onPageChange={(e) => loadSelectedPage(e.selected + 1)}
+                    onPageChange={e => this.loadMoviesByPageNumber(e.selected)}
                     containerClassName={'pagination'}
                     subContainerClassName={'pages pagination'}
                     activeClassName={'active-page'}
+                    forcePage={this.props.pageIndex}
                   />
                 </div>
               </Col>
@@ -46,4 +58,4 @@ class MoviesListView extends Component {
   }
 }
 
-export default MoviesListView;
+export default withRouter(MoviesListView);
