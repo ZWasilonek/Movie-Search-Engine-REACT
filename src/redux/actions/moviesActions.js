@@ -9,23 +9,25 @@ import {
   REMOVE_FROM_WATCHED_MOVIES,
   SHOW_SELECTED_PAGE,
   MOVIE_DETAILS_FETCHED,
+  SET_ROOT_PATH,
+  SET_PAGE_NUMBER
 } from "./actionsTypes";
 
 export const startFetching = () => ({
   type: FETCHING_MOVIES
 });
 
-export const getMovies = (movies) => ({
+export const getMovies = movies => ({
   type: MOVIES_FETCHED,
   payload: movies
 });
 
-export const setError = (error) => ({
+export const setError = error => ({
   type: FETCHING_ERROR,
   payload: error
 });
 
-export const setSearchedTitle = (title) => ({
+export const setSearchedTitle = title => ({
   type: SET_SEARCHED_TITLE,
   payload: title
 });
@@ -40,14 +42,14 @@ export const addToWatched = movie => ({
   payload: movie
 });
 
-export const removeFromMoviesToWatch = (movie, rootPath) => ({
+export const removeFromMoviesToWatch = movie => ({
   type: REMOVE_FROM_MOVIES_TO_WATCH,
-  payload: { movie, rootPath }
+  payload: movie
 });
 
-export const removeFromWatchedMovies = (movie, rootPath) => ({
+export const removeFromWatchedMovies = movie => ({
   type: REMOVE_FROM_WATCHED_MOVIES,
-  payload: { movie, rootPath }
+  payload: movie
 });
 
 export const showSelectedPage = moviesByPageNumber => ({
@@ -58,4 +60,14 @@ export const showSelectedPage = moviesByPageNumber => ({
 export const getMovieDetails = movieDetails => ({
   type: MOVIE_DETAILS_FETCHED,
   payload: movieDetails
+});
+
+export const setRootPath = rootPath => ({
+  type: SET_ROOT_PATH,
+  payload: rootPath
+});
+
+export const setPageNumber = pageNumber => ({
+  type: SET_PAGE_NUMBER,
+  payload: pageNumber
 });
