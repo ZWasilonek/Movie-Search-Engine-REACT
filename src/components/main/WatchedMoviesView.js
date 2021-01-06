@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import MoviesList from '../../containers/MoviesList';
 
-export default class WatchedMoviesView extends Component {
-  componentDidMount() {
-    this.props.loadSelectedPage(1);
+class WatchedMoviesView extends Component {
+  componentWillMount() {
+    this.props.loadSelectedPage();
   }
   render() {
     return (
@@ -11,9 +12,12 @@ export default class WatchedMoviesView extends Component {
         <MoviesList 
           movies={this.props.watchedMovies}
           totalPages={this.props.totalPages}
+          pageIndex={this.props.pageIndex}
           loadSelectedPage={this.props.loadSelectedPage}
         />
       </>
     );
   };
 }
+
+export default withRouter(WatchedMoviesView);
