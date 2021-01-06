@@ -21,3 +21,9 @@ export const loadMoviesByMoviesArrayAndPageNumber = (movies, page) => {
 };
 
 export const getMoviesBySelectedPage = state => state.moviesState.moviesByPageNumber;
+
+export const getHomePageIndex = state => state.moviesState.homePageIndex;
+
+export const getToWatchPageIndex = state => state.moviesState.toWatchPageIndex;
+
+export const getWatchedPageIndex = state => state.moviesState.watchedPageIndex;
