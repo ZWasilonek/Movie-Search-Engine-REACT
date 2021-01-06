@@ -7,7 +7,8 @@ export const getMovieDetails = state => {
 function validateMovie(movie) {
   const NOT_AVAILABLE = "N/A";
   const { Poster } = movie;
-  if (Poster === NOT_AVAILABLE) movie.Poster = "https://www.genesisglobalschool.edu.in/wp-content/uploads/2016/09/noimage.jpg";
+  if (Poster === NOT_AVAILABLE) 
+  movie.Poster = "https://www.genesisglobalschool.edu.in/wp-content/uploads/2016/09/noimage.jpg";
   movie.rating = 0;
   Object.entries(movie).forEach(([prop, val]) => {
     if (prop === "imdbRating" && val !== NOT_AVAILABLE) movie.rating = getFixedRating(val);
