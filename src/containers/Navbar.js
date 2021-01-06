@@ -7,7 +7,7 @@ const mapState = state => ({
   searchTitle: getSearchTitle(state)
 });
 
-const mapDispatch = (dispatch) => ({
+const mapDispatch = dispatch => ({
   searchMovies: (searchTitle) => dispatch(loadMovies(searchTitle)),
 });
 
