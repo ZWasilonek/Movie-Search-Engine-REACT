@@ -9,9 +9,9 @@ import {
 
 const mapDispatch = (dispatch) => ({
   addToWatch: movie => dispatch(addToWatch(movie)),
-  removeFromMoviesToWatch: (movie, rootPath) => dispatch(removeFromMoviesToWatch(movie, rootPath)),
+  removeFromMoviesToWatch: (movie) => dispatch(removeFromMoviesToWatch(movie)),
   addToWatched: (movie) => dispatch(addToWatched(movie)),
-  removeFromWatchedMovies: (movie, rootPath) => dispatch(removeFromWatchedMovies(movie, rootPath)),
+  removeFromWatchedMovies: (movie) => dispatch(removeFromWatchedMovies(movie)),
 });
 
 export default connect(null, mapDispatch)(MovieView);
