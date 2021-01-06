@@ -5,7 +5,7 @@ export const getWatchedMovies = state => state.moviesState.watchedMovies;
 //Returns all movies by provided title
 export const getAllFetchedMovies = state => {
   const movies = state.moviesState.movies;
-  movies.forEach(movie => validateNotAvailables(movie));
+  movies.map(movie => validateNotAvailables(movie));
   const taggedMovies = checkListAffiliation(movies, state);
   return taggedMovies;
 };
@@ -13,7 +13,8 @@ export const getAllFetchedMovies = state => {
 function validateNotAvailables(movie) {
   const NOT_AVAILABLE = "N/A";
   const { Poster } = movie;
-  if (Poster === NOT_AVAILABLE) movie.Poster = "https://www.genesisglobalschool.edu.in/wp-content/uploads/2016/09/noimage.jpg";
+  if (Poster === NOT_AVAILABLE) 
+    movie.Poster = "https://www.genesisglobalschool.edu.in/wp-content/uploads/2016/09/noimage.jpg";
   Object.entries(movie).forEach(([prop, val]) => {
     if (val === NOT_AVAILABLE) movie[prop] = "NOT AVAILABLE";
   });
