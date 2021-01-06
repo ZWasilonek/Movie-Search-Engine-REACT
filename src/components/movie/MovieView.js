@@ -15,19 +15,19 @@ class MovieView extends Component {
   };
 
   handleMoviesToWatch = () => {
-    const { movieObject, path } = this.state;
+    const { movieObject } = this.state;
     this.setState({
       wantsToWatch: !this.state.wantsToWatch
     }, () => {
       movieObject.wantsToWatch = this.state.wantsToWatch
       movieObject.wantsToWatch ?
         this.props.addToWatch(movieObject) :
-        this.props.removeFromMoviesToWatch(movieObject, path)
+        this.props.removeFromMoviesToWatch(movieObject)
     });
   };
 
   handleWatchedMovies = (selectedRating) => {
-    const { movieObject, path } = this.state;
+    const { movieObject } = this.state;
     this.setState({
       watched: !this.state.watched,
       rating: selectedRating
@@ -36,7 +36,7 @@ class MovieView extends Component {
       movieObject.rating = this.state.rating;
       movieObject.watched ?
         this.props.addToWatched(movieObject) :
-        this.props.removeFromWatchedMovies(movieObject, path)
+        this.props.removeFromWatchedMovies(movieObject)
     });
   };
 
@@ -53,7 +53,10 @@ class MovieView extends Component {
       <>
         {movie !== undefined &&
           <Card className="movie-style">
-            <CardImg variant="top" src={Poster} className="image" onClick={() => this.goToMovieDetails(imdbID)} />
+            <CardImg 
+              variant="top" 
+              src={Poster} className="image" 
+              onClick={() => this.goToMovieDetails(imdbID)} />
             <Card.Body>
               <Card.Title>{Title} ({Year})</Card.Title>
               {watched &&
