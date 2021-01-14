@@ -10,7 +10,8 @@ import {
   SHOW_SELECTED_PAGE,
   MOVIE_DETAILS_FETCHED,
   SET_ROOT_PATH,
-  SET_PAGE_NUMBER
+  SET_PAGE_NUMBER,
+  CHANGE_RATING
 } from "../actions/actionsTypes";
 
 const initialState = {
@@ -143,12 +144,23 @@ export const moviesState = (state = initialState, { type, payload }) => {
       }
 
     case SET_PAGE_NUMBER:
-      const selectedPageNumber = isWantWatchPath ? TO_WATCH_INDEX_FIELD_NAME : 
-      (isWatchedPath ? WATCHED_INDEX_FIELD_NAME : 
-        (isHomePath ? HOME_INDEX_FIELD_NAME : "ERROR"));
+      const selectedPageNumber = isWantWatchPath ? TO_WATCH_INDEX_FIELD_NAME :
+        (isWatchedPath ? WATCHED_INDEX_FIELD_NAME :
+          (isHomePath ? HOME_INDEX_FIELD_NAME : "ERROR"));
       return {
         ...state,
         [selectedPageNumber]: payload
+      }
+
+    case CHANGE_RATING:
+      const modifiedMovie = payload;
+      const modifiedWatchedMovies = state.watchedMovies.map(movie => {
+        if (movie.imdbID === modifiedMovie.imdbID) movie = modifiedMovie;
+        return movie;
+      });
+      return {
+        ...state,
+        watchedMovies: modifiedWatchedMovies
       }
 
     default:
