@@ -17,10 +17,9 @@ class MovieDetailsView extends Component {
     const backgroundStyle = 
     "body {" +
       "background: linear-gradient(" +
-          "rgba(0, 0, 0, 0.5)," + 
-          "rgba(0, 0, 0, 0.5))," +
-          "url(https://webdesignerdepot.s3.amazonaws.com/default-images/16.jpg) no-repeat fixed center / cover; " + 
-      "font-weight: 600;" +
+        "rgba(126, 125, 125, 0.514)," + 
+        "rgba(0, 0, 0, 0.5))," +
+        "url(https://webdesignerdepot.s3.amazonaws.com/default-images/16.jpg) no-repeat fixed center / cover; " + 
     "}";
     return (
       <>
