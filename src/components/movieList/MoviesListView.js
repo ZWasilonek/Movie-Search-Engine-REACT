@@ -29,11 +29,11 @@ class MoviesListView extends Component {
           <Container className="movie-list-container">
             <Row>
               {movies.map((movie) => (
-                <Col xs={6} md={4} key={movie.imdbID}>
+                <Col md={6} lg={4} key={movie.imdbID}>
                   <MovieView movie={movie} />
                 </Col>
               ))}
-              <Col xs={6} md={8} className="pages-content">
+              <Col className="pages-content">
                 <div className="pages-box">
                   <ReactPaginate
                     previousLabel={'previous'}
