@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import MoviesList from '../../containers/MoviesList';
 
 class HomeView extends Component {
-  componentWillMount = () => {
+  componentDidMount = () => {
     this.props.movies.length === 0 && this.props.loadMovies();
   }
 
