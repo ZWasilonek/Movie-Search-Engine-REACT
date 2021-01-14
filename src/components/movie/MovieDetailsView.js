@@ -7,8 +7,8 @@ import classes from "./MovieDetails.module.css";
 import StarsRatingView from "./StarsRatingView";
 import FetchingError from "../error/FetchingError";
 
-class MovieDetailsView extends Component {
-  componentWillMount = () => {
+export default class MovieDetailsView extends Component {
+  componentDidMount = () => {
     this.props.loadMovieDetails();
   };
 
@@ -72,6 +72,4 @@ class MovieDetailsView extends Component {
       </>
     )
   }
-}
-
-export default MovieDetailsView;
+};
