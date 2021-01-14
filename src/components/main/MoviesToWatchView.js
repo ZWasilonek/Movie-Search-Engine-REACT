@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import MoviesList from '../../containers/MoviesList';
 
 class MoviesToWatchView extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.loadSelectedPage();
   }
 
