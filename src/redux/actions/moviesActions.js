@@ -10,7 +10,8 @@ import {
   SHOW_SELECTED_PAGE,
   MOVIE_DETAILS_FETCHED,
   SET_ROOT_PATH,
-  SET_PAGE_NUMBER
+  SET_PAGE_NUMBER,
+  CHANGE_RATING
 } from "./actionsTypes";
 
 export const startFetching = () => ({
@@ -70,4 +71,9 @@ export const setRootPath = rootPath => ({
 export const setPageNumber = pageNumber => ({
   type: SET_PAGE_NUMBER,
   payload: pageNumber
+});
+
+export const changeRating = movie => ({
+  type: CHANGE_RATING,
+  payload: movie
 });
