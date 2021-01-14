@@ -6,7 +6,7 @@ export default class StarsRatingView extends Component {
     return (
       <StarRatings
         rating={this.props.rating}
-        starRatedColor="rgb(255, 193, 7)"
+        starRatedColor="rgb(255, 221, 26)"
         starEmptyColor="rgb(250, 242, 224)"
         numberOfStars={5}
         name="rating"
