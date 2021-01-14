@@ -34,10 +34,10 @@ class MovieDetailsView extends Component {
             </Helmet>
             <Container>
               <Row>
-                <Col xs md='auto' lg='auto'>
-                  <Image src={movie.Poster} rounded className="" />
+                <Col xs={12} md={6} lg='auto'>
+                  <Image src={movie.Poster} rounded />
                 </Col>
-                <Col xs md={7} lg={7}>
+                <Col xs={12} md={6} lg={7}>
                   <Card className={classes.MovieCard}>
                     <Card.Header className={classes.MovieTitleCard}>
                       {movie.Title.toUpperCase()} ({movie.Year})
