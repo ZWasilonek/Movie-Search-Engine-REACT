@@ -8,7 +8,7 @@ import ReactPaginate from 'react-paginate';
 import { withRouter } from 'react-router-dom';
 
 class MoviesListView extends Component {
-  componentWillMount() {
+  componentDidMount() {
     const rootPath = this.props.history.location.pathname;
     this.props.setRootPath(rootPath);
   }
