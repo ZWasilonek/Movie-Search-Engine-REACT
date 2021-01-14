@@ -4,6 +4,7 @@ import { Card, CardImg } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
 import { faEye, faEyeSlash, faClipboardCheck } from "@fortawesome/free-solid-svg-icons";
 import StarsRatingView from "./StarsRatingView";
+import ReactTooltip from 'react-tooltip';
 
 class MovieView extends Component {
   state = {
@@ -27,18 +28,30 @@ class MovieView extends Component {
   };
 
   handleWatchedMovies = (selectedRating) => {
-    const { movieObject } = this.state;
+    const { movieObject, watched } = this.state;
     this.setState({
-      watched: !this.state.watched,
+      watched: true,
       rating: selectedRating
     }, () => {
       movieObject.watched = this.state.watched;
       movieObject.rating = this.state.rating;
-      movieObject.watched ?
+      !watched ?
         this.props.addToWatched(movieObject) :
-        this.props.removeFromWatchedMovies(movieObject)
+        this.props.changeRating(movieObject)
     });
   };
+
+  handleClipboardCheckIconOnClick = (rating) => {
+    const { movieObject } = this.state;
+    this.setState({
+      watched: !this.state.watched,
+      rating: rating
+    }, () => {
+      movieObject.watched = this.state.watched;
+      movieObject.rating = this.state.rating;
+      this.props.removeFromWatchedMovies(movieObject)
+    });
+  }
 
   goToMovieDetails = (movieID) => {
     const PATH = `/details/${movieID}`;
@@ -53,34 +66,43 @@ class MovieView extends Component {
       <>
         {movie !== undefined &&
           <Card className="movie-style">
-            <CardImg 
-              variant="top" 
-              src={Poster} className="image" 
+            <CardImg
+              variant="top"
+              src={Poster} className="image"
               onClick={() => this.goToMovieDetails(imdbID)} />
             <Card.Body>
               <Card.Title>{Title} ({Year})</Card.Title>
-              {watched &&
-                <FontAwesomeIcon
-                  className="watched-icon"
-                  icon={faClipboardCheck}
-                  size={"3x"}
-                  color={"#cc0052"}
-                  onClick={() => this.handleWatchedMovies(rating)}
-                />
-              }
+              <span data-for="clipboardCheckIcon" data-tip='remove from "Watched"'>
+                {watched &&
+                  <FontAwesomeIcon
+                    className="watched-icon"
+                    icon={faClipboardCheck}
+                    size={"3x"}
+                    color={"#cc0052"}
+                    onClick={() => this.handleClipboardCheckIconOnClick(rating)}
+                  />
+                }
+                <ReactTooltip id="clipboardCheckIcon" />
+              </span>
             </Card.Body>
             <Card.Footer>
-              <StarsRatingView
-                rating={rating}
-                changeRating={(selectedRating) => this.handleWatchedMovies(selectedRating)}
-              />
+              <span data-for="starRatingIcons" data-tip={!watched ? 'add to watched' : 'change rating'}>
+                <StarsRatingView
+                  rating={rating}
+                  changeRating={(selectedRating) => this.handleWatchedMovies(selectedRating)}
+                />
+                <ReactTooltip id="starRatingIcons" />
+              </span>
               <FontAwesomeIcon
                 className="wish-to-watch-icon"
                 icon={!wantsToWatch ? faEye : faEyeSlash}
-                size={'3x'}
+                size={"3x"}
                 color={!wantsToWatch ? "#17a2b8" : "#ffdb4d"}
                 onClick={this.handleMoviesToWatch}
+                data-for="eyeIcon"
+                data-tip={!wantsToWatch ? 'add to watchlist' : 'remove from "To watch"'}
               />
+              <ReactTooltip id="eyeIcon" />
             </Card.Footer>
           </Card>
         }
