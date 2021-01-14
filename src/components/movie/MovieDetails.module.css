@@ -11,19 +11,19 @@
 }
 
 .MovieCard {
-  background-color: rgba(179, 199, 199, 0.637);
+  background-color: rgba(232, 238, 238, 0.938);
 }
 
 .MovieFeatures {
-  color: rgb(245, 221, 150);
+  color: #019790;
+  font-weight: 600;
 }
 
 .MovieTitleCard {
-  color: #33012f;
+  color: #373d75;
   font-size: x-large;
   font-weight: 900;
-  background-color:rgba(190, 226, 235, 0.753);
-  border: 2px solid rgba(230, 231, 245, 0.973);
+  background-color:rgba(180, 192, 192, 0.993);
 }
 
 .MovieVotesCard {
