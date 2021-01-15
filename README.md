@@ -1,5 +1,7 @@
 # MOVIE SEARCH ENGINE
 
+SEE ON HEROKU: https://movie-search-zw.herokuapp.com/#/home
+
 The application allows you to search for movies by title and to sort the searched movies into categories "watched" and "to watch".\
 Each of the movies can be viewed in a separate tab, in which we can find details of the selected movie.\
 The application uses the API provided by http://www.omdbapi.com/.
