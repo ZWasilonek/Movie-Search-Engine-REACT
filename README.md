@@ -1,7 +1,7 @@
 # MOVIE SEARCH ENGINE
 
 The application allows you to search for movies by title and to sort the searched movies into categories "watched" and "to watch".\
-Each of the films can be viewed in a separate tab, in which we can find details of the selected film.\
+Each of the movies can be viewed in a separate tab, in which we can find details of the selected movie.\
 The application uses the API provided by http://www.omdbapi.com/.
 
 ![homePage](https://user-images.githubusercontent.com/59224048/104773466-66a7df80-5775-11eb-9c82-d7ee2d30e6c7.png)
