@@ -35,20 +35,24 @@ class MovieView extends Component {
     }, () => {
       movieObject.watched = this.state.watched;
       movieObject.rating = this.state.rating;
-      !watched ?
-        this.props.addToWatched(movieObject) :
+
+      const isMovieInWatchedList = watched;
+      const isWishToAddToWatched = this.state.watched;
+
+      if (isWishToAddToWatched && !isMovieInWatchedList) {
+        this.props.addToWatched(movieObject);
+      } else if (isMovieInWatchedList) {
         this.props.changeRating(movieObject)
+      }
     });
   };
 
-  handleClipboardCheckIconOnClick = (rating) => {
+  handleRemoveFromWatched = () => {
     const { movieObject } = this.state;
     this.setState({
-      watched: !this.state.watched,
-      rating: rating
+      watched: false
     }, () => {
       movieObject.watched = this.state.watched;
-      movieObject.rating = this.state.rating;
       this.props.removeFromWatchedMovies(movieObject)
     });
   }
@@ -79,7 +83,7 @@ class MovieView extends Component {
                     icon={faClipboardCheck}
                     size={"3x"}
                     color={"#cc0052"}
-                    onClick={() => this.handleClipboardCheckIconOnClick(rating)}
+                    onClick={this.handleRemoveFromWatched}
                   />
                 }
                 <ReactTooltip id="clipboardCheckIcon" />
