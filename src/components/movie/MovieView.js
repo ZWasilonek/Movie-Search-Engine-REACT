@@ -20,8 +20,9 @@ class MovieView extends Component {
     this.setState({
       wantsToWatch: !this.state.wantsToWatch
     }, () => {
-      movieObject.wantsToWatch = this.state.wantsToWatch
-      movieObject.wantsToWatch ?
+      const wishWantsToWatch = this.state.wantsToWatch;
+      movieObject.wantsToWatch = wishWantsToWatch
+      wishWantsToWatch ?
         this.props.addToWatch(movieObject) :
         this.props.removeFromMoviesToWatch(movieObject)
     });
