@@ -14,6 +14,7 @@ The application uses the API provided by http://www.omdbapi.com/.
 
 - NodeJS
 - ReactJS
+- Redux
 
 ## Run the application
 
