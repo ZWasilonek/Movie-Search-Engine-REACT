@@ -41,8 +41,7 @@ class MovieView extends Component {
 
       if (isWishToAddToWatched && !isMovieInWatchedList) {
         this.props.addToWatched(movieObject);
-      } 
-      if (isMovieInWatchedList) {
+      } else if (isMovieInWatchedList) {
         this.props.changeRating(movieObject)
       }
     });
