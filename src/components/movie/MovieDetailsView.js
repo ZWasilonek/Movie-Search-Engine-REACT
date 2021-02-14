@@ -16,10 +16,10 @@ export default class MovieDetailsView extends Component {
     const { error, movie, loading } = this.props;
     const backgroundStyle =
       "body {" +
-      "background: linear-gradient(" +
-      "rgba(126, 125, 125, 0.514)," +
-      "rgba(0, 0, 0, 0.5))," +
-      "url(https://webdesignerdepot.s3.amazonaws.com/default-images/16.jpg) no-repeat fixed center / cover; " +
+      // "background: linear-gradient(" +
+      // "rgba(20, 30, 60, 0)," +
+      // "rgba(0, 0, 1, 0.5))," +
+      "background: url(https://www.njea.org/wp-content/uploads/2019/03/GettyImages-1037573870-1.jpg) no-repeat fixed center / cover; " +
       "}";
     return (
       <>

@@ -5,7 +5,7 @@ export default function StarsRatingView({changeRating, rating}) {
   return (
     <StarRatings
       rating={rating}
-      starRatedColor="rgb(255, 221, 26)"
+      starRatedColor="currentColor"
       starEmptyColor="rgb(250, 242, 224)"
       numberOfStars={5}
       name="rating"
