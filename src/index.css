@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
-  background: url("https://i0.wp.com/harborhonolulu.org/wp-content/uploads/2019/05/movie-theater-background.jpg?ssl=1") no-repeat fixed center / cover;
+  background: url("../src/resources/img/movie-theater-background.webp") no-repeat fixed center / cover;
 }
 
 code {

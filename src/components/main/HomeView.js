@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
 import MoviesList from '../../containers/MoviesList';
+import bgMusic from '../../resources/music/cinematic-music-sketches-11-cinematic-percussion-sketch-116186.mp3'; //https://pixabay.com
 
 class HomeView extends Component {
   componentDidMount = () => {
@@ -10,6 +11,9 @@ class HomeView extends Component {
   render() {
     return (
       <>
+        <audio controls autoPlay>
+          <source src={bgMusic} type="audio/mpeg" />
+        </audio>
         <MoviesList
           movies={this.props.movies}
           totalPages={this.props.totalPages}

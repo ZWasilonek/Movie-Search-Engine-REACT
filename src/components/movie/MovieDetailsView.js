@@ -6,6 +6,7 @@ import EmptyMoviesList from "../error/EmptyMoviesList";
 import classes from "./MovieDetails.module.css";
 import StarsRatingView from "./StarsRatingView";
 import FetchingError from "../error/FetchingError";
+import bgMusic from '../../resources/music/cinema-rhythms-driver-05-120831.mp3'; //https://pixabay.com
 
 export default class MovieDetailsView extends Component {
   componentDidMount = () => {
@@ -16,13 +17,13 @@ export default class MovieDetailsView extends Component {
     const { error, movie, loading } = this.props;
     const backgroundStyle =
       "body {" +
-      // "background: linear-gradient(" +
-      // "rgba(20, 30, 60, 0)," +
-      // "rgba(0, 0, 1, 0.5))," +
-      "background: url(https://www.njea.org/wp-content/uploads/2019/03/GettyImages-1037573870-1.jpg) no-repeat fixed center / cover; " +
+        "background: url(https://img.freepik.com/free-photo/rendering-abstract-futuristic-background-with-glowing-neon-blue-orange-lights_181624-19807.jpg?w=1060&t=st=1679602907~exp=1679603507~hmac=ff94a00f2cae2ef09b216d855b32c1f2a437adceff3312447b83c7437ca20f6c) no-repeat fixed center / cover; " +
       "}";
     return (
       <>
+        <audio controls autoPlay>
+          <source src={bgMusic} type="audio/mpeg" />
+        </audio>
         {loading && <Loading />}
         {error && <FetchingError error={error} />}
         {movie === undefined && movie !== null && !error && !loading
